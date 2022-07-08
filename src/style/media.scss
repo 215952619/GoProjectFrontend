@@ -1,0 +1,100 @@
+// screen width >= 1920px
+@media screen and (min-width: 1921px) {
+    html {
+        font-size: 12px;
+    }
+
+    #app {
+        --main-width: 1440px;
+    }
+}
+
+// 1440px <= screen width <= 1920px
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    html {
+        font-size: 11px;
+    }
+
+    #app {
+        --main-width: 75%;
+    }
+}
+
+//  1201px <= screen width <= 1440px
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+    html {
+        font-size: 10px;
+    }
+
+    #app {
+        --main-width: 85%;
+    }
+}
+
+//  981px <= screen width <= 1200px
+@media screen and (min-width: 981px) and (max-width: 1200px) {
+    html {
+        font-size: 9px;
+    }
+
+    #app {
+        --main-width: calc(100% - 40px);
+    }
+}
+
+//   screen 799px < width < 980px
+@media screen and (min-width: 799px) and (max-width: 980px) {
+    html {
+        font-size: 8px;
+    }
+
+    #app {
+        --main-width: calc(100% - 40px);
+    }
+}
+
+//   screen width < 798px
+@media screen and (max-width: 798px) {
+    html {
+        font-size: 8px;
+    }
+
+    #app {
+        --main-width: calc(100% - 40px);
+
+        .basic_part {
+            &.lr {
+                display: block;
+
+                > .part {
+                    width: 100% !important;
+
+                    &:not(:last-child) {
+                        margin-bottom: 20px;
+                    }
+
+                    video {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        #the_footer {
+            width: 100% !important;
+
+            > .top {
+                align-items: center;
+                justify-content: center;
+
+                > .navs {
+                    display: none;
+                }
+
+                > .concat {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+:root {
+    --mian-color: #2c3e50;
+    --body-bgc: rgba(255, 255, 255, 1);
+    --text-color: rgba(0, 0, 0, 1);
+    --border-color: rgba(130, 133, 135, 1);
+    --white-color: rgba(255, 255, 255, 1);
+    --main-light-color: rgba(62, 102, 142, 1);
+    --font-name: Avenir, Helvetica, Arial, sans-serif;
+
+    --base-space: 10px;
+    --border-radius: 5px;
+    --width-space: 20px;
+    --height-space: 16px;
+    --base-font-size: 10px;
+
+    --header-height: 5.4rem; // 导航高度
+    --footer-simple-height: 10rem; // footer.simple高度
+    --footer-height: 54rem; // footer高度
+    --main-width: 90%; // 主体内容宽度
+}
