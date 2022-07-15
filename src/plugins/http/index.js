@@ -1,6 +1,6 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios from 'axios'
 import { getBrowser } from '@/utils/func'
-import { baseUrl, default_timeout } from '@/utils/var'
+import { baseUrl, default_timeout } from '@/utils/vars'
 
 const NewInstance = () => {
     return axios.create({
@@ -12,7 +12,7 @@ const NewInstance = () => {
     })
 }
 
-const tokenInterceptorHandler = (config: AxiosRequestConfig) => {
+const tokenInterceptorHandler = (config) => {
     requestInterceptor(config)
 
     let token = localStorage.getItem('token') || ''
@@ -21,14 +21,14 @@ const tokenInterceptorHandler = (config: AxiosRequestConfig) => {
     return config
 }
 
-const requestInterceptor = (config: AxiosRequestConfig) => {
+const requestInterceptor = (config) => {
     if (config.method === 'get' && getBrowser().includes('ie')) {
         config.params['timestamp'] = new Date().getTime()
     }
     return config
 }
 
-const successResponseInterceptor = (response: AxiosResponse) => {
+const successResponseInterceptor = (response) => {
     if (response?.status === 200) {
         const { code, msg, data } = response.data
 
@@ -51,11 +51,11 @@ const successResponseInterceptor = (response: AxiosResponse) => {
     return Promise.reject('未知错误')
 }
 
-const errorResponseInterceptor = (error: any) => {
+const errorResponseInterceptor = (error) => {
     return Promise.reject(error)
 }
 
-const instance = NewInstance()
+export const instance = NewInstance()
 
 // request 拦截
 instance.interceptors.request.use(
@@ -69,7 +69,7 @@ instance.interceptors.response.use(
     error => errorResponseInterceptor(error)
 )
 
-const tokenInstance = NewInstance()
+export const tokenInstance = NewInstance()
 
 // request 拦截
 tokenInstance.interceptors.request.use(
@@ -82,8 +82,3 @@ tokenInstance.interceptors.response.use(
     response => successResponseInterceptor(response),
     error => errorResponseInterceptor(error)
 )
-
-export default {
-    http: instance,
-    tokenHttp: tokenInstance,
-}

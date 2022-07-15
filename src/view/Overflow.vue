@@ -4,7 +4,7 @@
     <router-view />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Header from '@/view/overflow/Header.vue'
 import Login from '@/view/Login.vue'
 </script>

@@ -1,6 +1,4 @@
-import { Router } from 'vue-router'
-
-export function routerGuarder(router: Router): Router {
+export function routerGuarder(router) {
     router.beforeEach((to, from, next) => {
         let title = to.matched.reduce((prev, curr) => {
             if (curr?.meta?.title) {

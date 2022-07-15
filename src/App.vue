@@ -1,8 +1,8 @@
-<script setup lang="ts">
+<script setup>
 import { provide } from 'vue'
-import { useRoute, useRouter, Router, RouteLocationNormalized } from 'vue-router'
-const route: RouteLocationNormalized = useRoute()
-const router: Router = useRouter()
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
+const router = useRouter()
 
 provide('route', route)
 provide('router', router)

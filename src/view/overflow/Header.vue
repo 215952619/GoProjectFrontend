@@ -8,13 +8,13 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { inject } from 'vue'
 
 const route = inject('route')
 const router = inject('router')
 
-const headerMenu: Array<MenuItem> = [
+const headerMenu = [
     {
         label: '首页',
         callback: item => {

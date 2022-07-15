@@ -1,4 +1,4 @@
-export const getBrowser = (): string => {
+export const getBrowser = () => {
     let _userAgent = navigator.userAgent // 取得浏览器的_userAgent字符串
     let _isOpera = _userAgent.indexOf('Opera') > -1 // 判断是否Opera浏览器
     let _isIE = _userAgent.indexOf('compatible') > -1 && _userAgent.indexOf('MSIE') > -1 && !_isOpera // 判断是否IE浏览器

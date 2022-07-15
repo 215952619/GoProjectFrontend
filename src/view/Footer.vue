@@ -8,8 +8,8 @@
     </div>
 </template>
 
-<script setup lang="ts">
-const footerMenu: Array<MenuItem> = [
+<script setup>
+const footerMenu = [
     {
         label: '©2018-2022',
         callback: item => {},
