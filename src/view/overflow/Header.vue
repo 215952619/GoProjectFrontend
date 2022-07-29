@@ -6,6 +6,9 @@
             </span>
         </p>
     </div>
+    <el-menu mode="horizontal" @select="handleSelect">
+        <el-menu-item v-for="item in headerMenu" :key="item.label" :index="item.index">{{ item.label }}</el-menu-item>
+    </el-menu>
 </template>
 
 <script setup>
@@ -17,29 +20,27 @@ const router = inject('router')
 const headerMenu = [
     {
         label: '首页',
-        callback: item => {
-            if (route.name != 'Overflow') router.push({ name: 'Overflow' })
-        },
+        index: 'Main',
     },
     {
         label: '归档',
-        callback: item => {
-            console.log('to archive')
-        },
+        index: 'Archive',
     },
     {
         label: '留言板',
-        callback: item => {
-            console.log('message board')
-        },
+        index: 'Board',
     },
     {
         label: '关于本站',
-        callback: item => {
-            console.log('about website')
-        },
+        index: 'About',
     },
 ]
+
+const handleSelect = (key, keyPath) => {
+    if (route.name != key) {
+        router.push({ name: key })
+    }
+}
 </script>
 
 <style scoped>

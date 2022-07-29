@@ -39,10 +39,34 @@ export const routes = [
         ],
     },
     {
+        path: '/user',
+        name: 'User',
+        components: {
+            default: () => Overflow,
+            footer: () => Footer,
+        },
+        meta: { title: '个人主页' },
+        children: [
+            {
+                path: "/collect",
+                name: "UserCollect",
+                component: () => NotFound,
+            },
+            {
+                path: "/history",
+                name: "UserHistory",
+                component: () => NotFound,
+            },
+        ],
+    },
+    {
         path: '/admin',
         name: 'Admin',
-        component: () => Overflow,
-        meta: { title: '管理员页面', needAuth: true },
+        components: {
+            default: () => Overflow,
+            footer: () => Footer,
+        },
+        meta: { title: '管理员页面', needAuth: true, needAdmin: true },
         children: [
             {
                 path: '/user',
